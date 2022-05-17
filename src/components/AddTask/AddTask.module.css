@@ -1,0 +1,26 @@
+.taskInput {
+  background: #343a3f;
+  margin: 40px auto;
+  width: 70%;
+  outline: none;
+  color: white;
+  height: 50px;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.AddTaskBtn {
+  height: 50px;
+  padding: 0 2rem;
+  background: #a3acc3;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.AddTaskBtn:hover {
+  font-weight: bold;
+}
