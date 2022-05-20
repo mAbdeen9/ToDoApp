@@ -1,17 +1,24 @@
 //
 import { useRef } from "react";
 import styles from "./AddTask.module.css";
+
 //
 
 const AddTask = (props) => {
   const inputRef = useRef();
-  const sendTask = () => {
-    props.getTask(inputRef.current.value);
+  const sendTask = (e) => {
+    e.preventDefault();
+    const task = {
+      id: Math.random(),
+      data: inputRef.current.value,
+      done: false,
+    };
+    props.getTask(task);
     inputRef.current.value = "";
   };
 
   return (
-    <div>
+    <form>
       <input
         ref={inputRef}
         placeholder=" Add A Task . . . ✏️"
@@ -20,7 +27,7 @@ const AddTask = (props) => {
       <button onClick={sendTask} className={styles.AddTaskBtn}>
         ADD
       </button>
-    </div>
+    </form>
   );
 };
 
