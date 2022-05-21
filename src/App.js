@@ -18,6 +18,10 @@ function App() {
   const getTask = (data) => {
     if (data.data.trim() === "") return;
     setTask((prev) => {
+      if (prev === null) {
+        localStorage.setItem("data", JSON.stringify([data]));
+        return [data];
+      }
       localStorage.setItem("data", JSON.stringify([data, ...prev]));
       return [data, ...prev];
     });
@@ -70,7 +74,7 @@ function App() {
   };
 
   return (
-    <div className="container box sd">
+    <div className="container box ">
       <Header></Header>
       {popModal && (
         <EditTask
@@ -81,7 +85,7 @@ function App() {
       <Day></Day>
       <AddTask getTask={getTask}></AddTask>
       <div>
-        {task.map((data) => {
+        {task?.map((data) => {
           return (
             <Tasks
               deleteHandller={deleteHandller}
