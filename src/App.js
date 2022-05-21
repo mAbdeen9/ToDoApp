@@ -70,7 +70,7 @@ function App() {
   };
 
   return (
-    <div className="container box">
+    <div className="container box sd">
       <Header></Header>
       {popModal && (
         <EditTask
