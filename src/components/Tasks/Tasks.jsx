@@ -10,6 +10,11 @@ const Tasks = (props) => {
   const clickHandler = () => {
     props.done(props.taskID);
   };
+
+  const editHandler = () => {
+    props.updateTaskHandler(props.taskID);
+  };
+
   return (
     <div className={` ${styles.taskDiv}`}>
       <div
@@ -21,7 +26,7 @@ const Tasks = (props) => {
       <div>
         <button className={styles.taskBtn}>
           <span>
-            <PencilSquare color="#a3acc3" />
+            <PencilSquare onClick={editHandler} color="#a3acc3" />
           </span>
           <span onClick={deleteTask}>
             <Trash style={{ margin: "0 10px" }} color="#a3acc3" />
