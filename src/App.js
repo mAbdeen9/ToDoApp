@@ -13,6 +13,12 @@ function App() {
 
   useEffect(() => {
     setTask(JSON.parse(localStorage.getItem("data")));
+    setTask((prev) => {
+      prev.sort((a, b) => {
+        return a.done - b.done;
+      });
+      return [...prev];
+    });
   }, []);
 
   const getTask = (data) => {
@@ -46,6 +52,9 @@ function App() {
     });
     const updatedData = task;
     setTask((prev) => {
+      prev.sort((a, b) => {
+        return a.done - b.done;
+      });
       return [...prev];
     });
     localStorage.setItem("data", JSON.stringify(updatedData));
